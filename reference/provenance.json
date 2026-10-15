@@ -1,0 +1,11 @@
+{
+  "model": "acrogenesis/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-EXL3-3bpw",
+  "model_revision": "8cff1e817bd8f0a29d57b3f5ed5b89163670ff68",
+  "engine_revision": "058b8630fd081f3ff46fce6246955b157c3a2e3b",
+  "patch_sha256": "2256f5544909c419df108ad1e7982f3174067fc2ea198150e9f4d5c344eb8ccc",
+  "builder_sha256": "5bdf3d1465df4fc6c4cc9d92242bec04334ab36ba629e300df7761c6fa2653b4",
+  "panel_sha256": "b5f0e98453bb0025d3d78ad3b7ebfeddc8b39602cace4ca3e46bb48853c6c4ec",
+  "image": "localhost/nemotron35-recipe-kit@sha256:dead962052dc07f2782cdf913822f9e9a582269eb769a83bbebb7c3de221b4f1",
+  "positions": 300,
+  "scope": "Fixed teacher-forced continuations, full-GPU layer streaming, no CPU offloading. Not a BF16 reference or a general task benchmark."
+}

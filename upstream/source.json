@@ -1,0 +1,14 @@
+{
+  "repo": "https://github.com/sybil-solutions/local-ai-recipe-kit",
+  "revision": "ef9782ce0c564be8162e34edcb6bb626f56901d3",
+  "tools": {
+    "sweep.py": "11575bf0d0b59769db2ecd15f495a0275f9c67eb2af34113b1a102bc40f21cf6",
+    "score_ref_panel.py": "d23fcd4ae175789fe5488ba670e581b87f155b97890891e118d00d15b23b09aa",
+    "needle.py": "4eab07f5f45e459d4199cc9dd7481adf7af48b7409948d9292cf7a48dc4c25e1",
+    "probe.py": "d6e5fbbc6213abc667e67946b5a11e95f99eae3b29be752307164cc5d0d31195",
+    "memwatch.sh": "a32522b4128d4a5aa36df0ef2adfeae5a2ac9949da427cf8465513080ea2a146",
+    "hw_bw.py": "22c475c43010765430faef340e56ba5f1efb84d7b1c1346766eca11737e3664a",
+    "make_submission.py": "a9b38afd5d225078d0d8845d1d8d00e5c59d3b628a1e1fadd244572534161e5f",
+    "validate.py": "7872dbf5576ec6f2d527fc059db66497811cf0ab3b092858654ea3fb51d2dd54"
+  }
+}

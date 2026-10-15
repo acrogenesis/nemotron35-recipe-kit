@@ -1,0 +1,6 @@
+.git
+work
+results
+__pycache__
+*.pt
+*.safetensors

@@ -1,0 +1,4 @@
+# Preserve measured artifacts and embedded source snapshots byte for byte.
+results/** -text -whitespace
+# Blank context lines in unified patches carry a significant leading space.
+*.patch -whitespace

@@ -1,0 +1,105 @@
+{
+  "unix_minus_perf_counter": 1791913832.7652168,
+  "rounds": {
+    "C1": [
+      {
+        "round": 0,
+        "start_unix": 1792104459.7827842,
+        "end_unix": 1792104518.6421826,
+        "samples": 58,
+        "max_host_cpu_percent": 39.09,
+        "mean_host_cpu_percent": 33.00103448275862,
+        "samples_above80_percent": 0
+      },
+      {
+        "round": 1,
+        "start_unix": 1792104518.6439612,
+        "end_unix": 1792104592.4372928,
+        "samples": 74,
+        "max_host_cpu_percent": 39.09,
+        "mean_host_cpu_percent": 33.320810810810805,
+        "samples_above80_percent": 0
+      }
+    ],
+    "C2": [
+      {
+        "round": 0,
+        "start_unix": 1792104592.5030708,
+        "end_unix": 1792104673.1223483,
+        "samples": 81,
+        "max_host_cpu_percent": 51.01,
+        "mean_host_cpu_percent": 33.28530864197531,
+        "samples_above80_percent": 0
+      },
+      {
+        "round": 1,
+        "start_unix": 1792104673.1245959,
+        "end_unix": 1792104753.6058648,
+        "samples": 80,
+        "max_host_cpu_percent": 39.57,
+        "mean_host_cpu_percent": 33.3005,
+        "samples_above80_percent": 0
+      }
+    ],
+    "C3": [
+      {
+        "round": 0,
+        "start_unix": 1792104753.7808564,
+        "end_unix": 1792104882.7518694,
+        "samples": 129,
+        "max_host_cpu_percent": 41.12,
+        "mean_host_cpu_percent": 33.27705426356589,
+        "samples_above80_percent": 0
+      },
+      {
+        "round": 1,
+        "start_unix": 1792104882.756044,
+        "end_unix": 1792105015.309693,
+        "samples": 133,
+        "max_host_cpu_percent": 40.2,
+        "mean_host_cpu_percent": 33.456390977443604,
+        "samples_above80_percent": 0
+      }
+    ],
+    "C4": [
+      {
+        "round": 0,
+        "start_unix": 1792105015.422,
+        "end_unix": 1792105198.1837642,
+        "samples": 183,
+        "max_host_cpu_percent": 99.38,
+        "mean_host_cpu_percent": 42.32890710382514,
+        "samples_above80_percent": 26
+      },
+      {
+        "round": 1,
+        "start_unix": 1792105198.1869302,
+        "end_unix": 1792105361.9584813,
+        "samples": 163,
+        "max_host_cpu_percent": 53.33,
+        "mean_host_cpu_percent": 33.55325153374233,
+        "samples_above80_percent": 0
+      }
+    ],
+    "C1@32k": [
+      {
+        "round": 0,
+        "start_unix": 1792105362.2024949,
+        "end_unix": 1792105476.984513,
+        "samples": 114,
+        "max_host_cpu_percent": 62.24,
+        "mean_host_cpu_percent": 43.383508771929826,
+        "samples_above80_percent": 0
+      },
+      {
+        "round": 1,
+        "start_unix": 1792105476.995885,
+        "end_unix": 1792105559.0360484,
+        "samples": 82,
+        "max_host_cpu_percent": 39.84,
+        "mean_host_cpu_percent": 33.478658536585364,
+        "samples_above80_percent": 0
+      }
+    ]
+  }
+}

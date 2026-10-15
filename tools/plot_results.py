@@ -9,17 +9,20 @@ import numpy as np
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--sweep', required=True)
+ap.add_argument('--quality', required=True)
 ap.add_argument('--out', required=True)
 a = ap.parse_args()
 d = json.loads(Path(a.sweep).read_text())
+quality = json.loads(Path(a.quality).read_text())
+quality_ok = quality['top1_agreement'] >= .99 and quality['mean_kl_top20'] <= .001
 assert d['status'] == 'DONE', 'Only complete measured sweeps can be plotted'
 bg, panel, text, muted, green, cyan = '#06110d', '#0d1d16', '#e9f4ee', '#9db9ac', '#adff69', '#52cee3'
 plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 11, 'text.color': text,
     'axes.labelcolor': muted, 'xtick.color': muted, 'ytick.color': text,
     'axes.edgecolor': panel, 'savefig.facecolor': bg})
-fig, (ax, pre) = plt.subplots(1, 2, figsize=(13, 6), gridspec_kw={'width_ratios': [1.2, 1]})
+fig, (ax, pre) = plt.subplots(1, 2, figsize=(13, 7), gridspec_kw={'width_ratios': [1.2, 1]})
 fig.patch.set_facecolor(bg)
-fig.subplots_adjust(left=.08, right=.97, top=.72, bottom=.23, wspace=.28)
+fig.subplots_adjust(left=.08, right=.97, top=.72, bottom=.30, wspace=.28)
 fig.text(.08, .94, 'FIELD NOTES / RTX 5090 / NEMOTRON 3.5 SUPER', color=green, fontsize=10, family='monospace')
 fig.text(.08, .865, 'More conversations, same GPU', fontsize=25, weight='bold')
 fig.text(.08, .81, 'EXL3 3-bit HQ · CPU expert offloading · natural-end completions', color=muted)
@@ -50,14 +53,18 @@ for i, n in enumerate(lengths):
     pre.hlines(i, row['min'], row['max'], color=green, linewidth=1.5)
     pre.scatter(row['all'], [i]*len(row['all']), color=green, edgecolors=bg, linewidth=.6, s=24, zorder=4)
     pre.vlines(row['median'], i-.2, i+.2, color=green, linewidth=2.5, zorder=5)
-    pre.text(row['max']+30, i, f"{row['median']:,.0f}", color=green, va='center', fontsize=10)
+    pre.text(row['max']+30, i, f"{row['median']:,.1f}", color=green, va='center', fontsize=10)
 pre.set_yticks(range(4), ['8K input', '16K input', '32K input', '64K input']); pre.invert_yaxis()
 pre.set_xlim(0, max(d['prefill'][str(n)]['max'] for n in lengths)*1.25)
 pre.set_xlabel('input tokens / time to first token', labelpad=13)
 pre.set_title('Prompt processing', loc='left', color=text, fontsize=15, pad=15)
 long = d['decode']['C1@32k']['aggregate']['median']
+if not quality_ok:
+    fig.text(.08, .14, f"Diagnostic run · runtime parity gate FAILED ({quality['top1_agreement']:.1%} token agreement; 99% required)", color='#ffc27b', fontsize=10)
 fig.text(.08, .085, f'32K prompt, one user: {long:.1f} tok/s   ·   128K configured context   ·   thinking off', color=muted, fontsize=10)
 fig.text(.08, .035, 'Bars + ticks: medians. Dots: every run. Decode n=2; prefill n=3.  acrogenesis', color=muted, fontsize=9)
+if d.get('report_kind') == 'combined_report':
+    fig.text(.08, .011, 'C4 + 32K: separately recorded repeat after high host CPU. Both source runs retained.', color=muted, fontsize=8)
 out = Path(a.out); out.parent.mkdir(parents=True, exist_ok=True)
 for suffix in ('.png', '.svg'):
     fig.savefig(out.with_suffix(suffix), dpi=160)

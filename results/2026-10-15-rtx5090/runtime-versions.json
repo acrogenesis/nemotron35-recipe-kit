@@ -1,0 +1,15 @@
+{
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "packages": {
+    "torch": "2.13.0+cu130",
+    "torchvision": "0.28.0+cu130",
+    "transformers": "5.12.1",
+    "flash-attn-4": "4.0.0b19",
+    "exllamav3": "1.6.2",
+    "fastapi": "0.141.1",
+    "uvicorn": "0.53.0",
+    "numpy": "2.3.5",
+    "marisa-trie": "1.4.1",
+    "matplotlib": "3.11.2"
+  }
+}

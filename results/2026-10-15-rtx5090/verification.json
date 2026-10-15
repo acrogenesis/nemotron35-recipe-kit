@@ -1,0 +1,14 @@
+{
+  "natural_end_decode_requests": 22,
+  "cache_hits": 0,
+  "minimum_output_tokens": 1059,
+  "maximum_output_tokens": 3251,
+  "total_output_tokens": 38345,
+  "all_aggregate_rates_recomputed": true,
+  "prefill_lengths": 4,
+  "prefill_repetitions_each": 3,
+  "decode_rounds_each": 2,
+  "campaign_status": "complete_diagnostic",
+  "quality_gate_passed": false,
+  "needle_passed": true
+}

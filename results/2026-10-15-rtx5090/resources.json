@@ -1,0 +1,14 @@
+{
+  "container_peak_bytes": 49740709888,
+  "anonymous_peak_bytes": 32051220480,
+  "container_swap_peak_bytes": 0,
+  "oom_events": 0,
+  "oom_kills": 0,
+  "gpu_peak_mib_including_desktop": null,
+  "host_gpu_trace_status": "FAILED: bc was not installed; original logger produced empty memory columns. Fixed logger tested separately after the sweep.",
+  "host_cpu_percent_median": 32.53,
+  "host_cpu_percent_max": 99.38,
+  "host_swap_start_upstream_units": null,
+  "host_swap_end_upstream_units": null,
+  "notes": "Cgroup trace is complete: byte counts, CPU use, container swap and OOM counters are valid. The separate host/GPU logger failed, so host RAM drop and GPU peak are not reported. Hardware probe recorded occupied host swap before launch. Container swap is disabled."
+}

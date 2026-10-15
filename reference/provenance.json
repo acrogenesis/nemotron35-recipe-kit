@@ -3,9 +3,10 @@
   "model_revision": "8cff1e817bd8f0a29d57b3f5ed5b89163670ff68",
   "engine_revision": "058b8630fd081f3ff46fce6246955b157c3a2e3b",
   "patch_sha256": "2256f5544909c419df108ad1e7982f3174067fc2ea198150e9f4d5c344eb8ccc",
-  "builder_sha256": "5bdf3d1465df4fc6c4cc9d92242bec04334ab36ba629e300df7761c6fa2653b4",
-  "panel_sha256": "b5f0e98453bb0025d3d78ad3b7ebfeddc8b39602cace4ca3e46bb48853c6c4ec",
-  "image": "localhost/nemotron35-recipe-kit@sha256:dead962052dc07f2782cdf913822f9e9a582269eb769a83bbebb7c3de221b4f1",
+  "builder_sha256": "12cb6f63fb5ab2c060fb84702152bb333980b0554a5c38cf739b36d6abb3880e",
+  "panel_sha256": "a9c5b5834996e9fee968ffd26c4fa4bff24f70c625dfda65280fb44a4e168cfe",
+  "image": "localhost/nemotron35-recipe-kit@sha256:d84e1ed4c42ec4a989c15ba089e2f064689e299820df57b009f41f373c93823d",
   "positions": 300,
-  "scope": "Fixed teacher-forced continuations, full-GPU layer streaming, no CPU offloading. Not a BF16 reference or a general task benchmark."
+  "scope": "Fixed teacher-forced continuations, full-GPU layer streaming with cached prefill then single-token decode. No CPU offloading. Not a BF16 reference or a general task benchmark.",
+  "builder_note": "The current builder only renames a shadowed timer variable; the measured reference arithmetic is identical. Diagnostic per-module timing fields were discarded."
 }

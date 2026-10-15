@@ -19,7 +19,7 @@ record = {
     'args': ['python', '/kit/server/serve.py', '-m', '/models', '-cs', '131072', '-gs', '27',
              '-mcs', '320', '-mct', '8', '-ambs', '4', '-chunk_size', '2048', '-rcs', '1',
              '--host', '0.0.0.0', '--port', '30000'],
-    'env': {'EXL3_INT8_GEMV': '0', 'EXL3_MOE_CPU_SWAP': '0', 'TORCH_CUDA_ARCH_LIST': '12.0', 'MAX_JOBS': '4', 'PYTHONPATH': ''},
+    'env': {'EXL3_INT8_GEMV': '0', 'EXL3_MOE_CPU_SWAP': '0', 'EXL3_MOE_CPU_WIDE': '1', 'TORCH_CUDA_ARCH_LIST': '12.0', 'MAX_JOBS': '4', 'PYTHONPATH': ''},
     'shm': '4g', 'gpu': 'nvidia.com/gpu=all', 'memory': '56g', 'memory_swap': '56g',
     'published_port': '127.0.0.1:30080:30000',
     'volumes': ['<model directory>:/models:ro', '<result directory>:/results:rw'],

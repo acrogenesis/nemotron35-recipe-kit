@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "checks": [
+    "invalid IDs",
+    "four concurrent natural completions",
+    "disconnect cancellation"
+  ],
+  "example": {
+    "id": "chatcmpl-49e96933eec64ab9b06bf1953fa94834",
+    "object": "chat.completion",
+    "created": 1792104054,
+    "model": "nemotron35-exl3",
+    "choices": [
+      {
+        "index": 0,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "4"
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 34,
+      "completion_tokens": 2,
+      "total_tokens": 36
+    }
+  }
+}

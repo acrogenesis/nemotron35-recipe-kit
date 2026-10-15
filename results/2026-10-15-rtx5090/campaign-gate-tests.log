@@ -1,0 +1,8 @@
+test_default_stops_before_speed_on_failed_parity (test_campaign.CampaignGateTests.test_default_stops_before_speed_on_failed_parity) ... ok
+test_diagnostic_preserves_both_failed_gates (test_campaign.CampaignGateTests.test_diagnostic_preserves_both_failed_gates) ... ok
+test_passing_standard_campaign (test_campaign.CampaignGateTests.test_passing_standard_campaign) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.351s
+
+OK

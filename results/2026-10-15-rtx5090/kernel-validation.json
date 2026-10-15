@@ -1,0 +1,22 @@
+{
+  "engine_revision": "058b8630fd081f3ff46fce6246955b157c3a2e3b",
+  "test_file": "tests/moe_cpu/test_wide_rows.py",
+  "adaptive_mode": {
+    "env": {
+      "EXL3_MOE_CPU_WIDE": "1"
+    },
+    "pytest_selection": "ordinary_rows_unchanged or mixed_chunks",
+    "passed": 6,
+    "seconds": 8.88
+  },
+  "forced_wide_mode": {
+    "env": {
+      "EXL3_MOE_CPU_WIDE": "2"
+    },
+    "pytest_selection": "mixed_chunks or shared_component or peaked_intermediate",
+    "passed": 18,
+    "seconds": 9.05
+  },
+  "image_python_sources_verified": 15,
+  "image": "localhost/nemotron35-recipe-kit@sha256:2a211682a6a01572763b992bed0ac5652d9fd66950f9e65a30c4b873b8d623f1"
+}

@@ -1,0 +1,12 @@
+{
+  "model_revision": "8cff1e817bd8f0a29d57b3f5ed5b89163670ff68",
+  "image": "localhost/nemotron35-recipe-kit@sha256:b66d408d338776c38fab28bf22fec74c82433eea4a038d286a7b804afdf4adac",
+  "cpu_experts_per_layer": 320,
+  "cpu_threads": 8,
+  "context": 131072,
+  "batch_slots": 4,
+  "cpu_activation_mode": "upstream adaptive (unset)",
+  "gpu_int8_gemv": false,
+  "dynamic_expert_swap": false,
+  "reference_panel_sha256": "a9c5b5834996e9fee968ffd26c4fa4bff24f70c625dfda65280fb44a4e168cfe"
+}

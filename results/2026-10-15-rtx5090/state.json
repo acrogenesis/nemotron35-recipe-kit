@@ -1,0 +1,10 @@
+{
+  "started": 1792104057.9866824,
+  "status": "complete_diagnostic",
+  "diagnostic": true,
+  "stage": "sweep",
+  "updated": 1792104153.16748,
+  "quality_gate_passed": false,
+  "needle_passed": true,
+  "finished": 1792105559.0707762
+}

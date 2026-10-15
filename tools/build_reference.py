@@ -13,8 +13,9 @@ os.environ.setdefault('EXL3_INT8_GEMV', '0')
 os.environ.setdefault('EXL3_MOE_CPU_SWAP', '0')
 import torch
 from transformers import AutoTokenizer
-from exllamav3 import Config, Model, Tokenizer
+from exllamav3 import Config, Model, Tokenizer, Cache
 from exllamav3.util.memory import free_mem, malloc_trim
+from exllamav3.cache.recurrent_util import advance_recurrent_states
 
 CASES = [
     ('Explain how a hash table handles collisions.', 'A hash table maps keys to array positions using a hash function. When two keys map to the same position, the table can store them in a linked list or search for another empty slot. Resizing the array helps keep lookups efficient.'),
@@ -31,6 +32,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--model', required=True)
     ap.add_argument('--out', required=True)
+    ap.add_argument('--schedule', choices=['decode', 'full'], default='decode',
+                    help='Match prefill plus single-token decode, or diagnose full-sequence kernel differences')
     a = ap.parse_args()
     torch.set_num_threads(8)
     config = Config.from_directory(a.model)
@@ -44,24 +47,47 @@ def main():
         tail = tokenizer.encode(continuation, encode_special_tokens=True, add_bos=False)[0].tolist()
         panel.append({'tokens': prefix+tail, 'prompt_len': len(prefix),
                       'question': question, 'continuation': continuation,
-                      'reference': 'EXL3 weights, layer streamed on GPU; fixed teacher-forced continuation'})
+                      'reference': f'EXL3 weights, layer streamed on GPU; {a.schedule} schedule; fixed teacher-forced continuation'})
         ids.append(torch.tensor([prefix+tail], dtype=torch.long))
     config.override_dynamic_seq_len(max(x.shape[-1] for x in ids))
     model = Model.from_config(config)
+    cache = Cache(model, max_num_tokens=256, max_batch_size=1) if a.schedule == 'decode' else None
     params = [{'attn_mode': 'flash_attn_nc'} for _ in ids]
     states = [model.prepare_inputs(x, p) for x, p in zip(ids, params)]
     for index, module in enumerate(model.modules):
-        start = time.monotonic()
+        module_started = time.monotonic()
         config.stc.begin_deferred_load()
         module.load(torch.device('cuda:0'))
         config.stc.end_deferred_load()
         for i, p in enumerate(params):
-            states[i] = module.forward(module.prepare_for_device(states[i], p), p).cpu()
+            if cache is None:
+                states[i] = module.forward(module.prepare_for_device(states[i], p), p).cpu()
+            else:
+                # Same numerical schedule as Generator: prefill all but the last prompt
+                # token, then one-token forwards through the known continuation.
+                # Loading one layer at a time still keeps every expert on the GPU.
+                recurrent = cache.get_new_state()
+                boundary = panel[i]['prompt_len']-1
+                spans = [(0, boundary)] + [(j, j+1) for j in range(boundary, ids[i].shape[-1])]
+                outputs = []
+                try:
+                    for start, end in spans:
+                        if start == end:
+                            continue
+                        step = {'attn_mode': 'flash_attn', 'cache': cache, 'batch_shape': (1, 256),
+                                'past_len': start, 'recurrent_states': [recurrent]}
+                        model.prepare_inputs(ids[i][:, start:end], step)
+                        x = states[i][:, start:end].contiguous()
+                        outputs.append(module.forward(module.prepare_for_device(x, step), step).cpu())
+                        advance_recurrent_states(ids[i][:, start:end], step, model)
+                finally:
+                    cache.release_state(recurrent)
+                states[i] = torch.cat(outputs, dim=1)
             assert torch.isfinite(states[i]).all(), (module.key, i)
         module.unload()
         config.stc.close()
         free_mem(); malloc_trim()
-        print(json.dumps({'module': index, 'key': module.key, 'seconds': time.monotonic()-start}), flush=True)
+        print(json.dumps({'module': index, 'key': module.key, 'seconds': time.monotonic()-module_started}), flush=True)
     for item, logits in zip(panel, states):
         lp = logits[0, item['prompt_len']-1:, :config.vocab_size].float().log_softmax(-1)
         values, indices = lp.topk(20, dim=-1)

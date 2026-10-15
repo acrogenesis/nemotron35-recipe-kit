@@ -11,6 +11,7 @@ import uuid
 
 os.environ.setdefault('EXL3_INT8_GEMV', '0')
 os.environ.setdefault('EXL3_MOE_CPU_SWAP', '0')
+os.environ.setdefault('EXL3_MOE_CPU_WIDE', '1')
 
 import torch
 from fastapi import FastAPI, HTTPException, Request
@@ -109,6 +110,7 @@ def create_app(args):
                 'max_total_num_tokens': args.cache_size, 'chunked_prefill_size': args.chunk_size,
                 'kv_cache_dtype': 'float16', 'max_mamba_cache_size': args.autosplit_max_batch_size,
                 'cpu_experts': args.moe_cpu_split, 'cpu_threads': args.moe_cpu_threads,
+                'cpu_activation_mode': os.environ['EXL3_MOE_CPU_WIDE'],
                 'int8_gemv': os.environ['EXL3_INT8_GEMV'], 'dynamic_expert_swap': os.environ['EXL3_MOE_CPU_SWAP'],
                 'torch': torch.__version__, 'cuda': torch.version.cuda,
                 'load_seconds': runtime['load_seconds']}

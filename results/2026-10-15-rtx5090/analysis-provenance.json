@@ -1,0 +1,19 @@
+{
+  "measured_image": "localhost/nemotron35-recipe-kit@sha256:a18e20ae849a4f18d3ed8fc0f373c14d4ce75077cb88d6762604d45248195823",
+  "model_and_server_unchanged_for_recheck": true,
+  "core_source_hashes_verified": {
+    "server/serve.py": "bc4a9ed09bba96abe4d313f6a2d1968327f97339d1c56562b16f27f49e6aea2c",
+    "patches/nemotron35-text.patch": "2256f5544909c419df108ad1e7982f3174067fc2ea198150e9f4d5c344eb8ccc",
+    "patches/cpu-wide-activations.patch": "a10e5ab331018884b1bcb8d1fcd61495c5029be77ba797565b9b7ec09fc5f971",
+    "tools/sweep.py": "9bfde76a67dd922d030a4dc26aa3275a84a8144c7ca9e6986bcc7e5678b52eed",
+    "tools/score_ref_panel.py": "d23fcd4ae175789fe5488ba670e581b87f155b97890891e118d00d15b23b09aa"
+  },
+  "post_sweep_helper_sha256": {
+    "tools/plot_results.py": "2997099710ba0c21a014cc23a5e93dc78d00344a0fc380a32725b7320238a28d",
+    "tools/monitor_container.py": "6352d23388c99b1b1fb7e44d098359737ef57b52a4d4f680e31869ee379f49c6",
+    "tools/memwatch.sh": "3fb94fd0e40140de7c31430f03be8686e0ae71a76c2b64c9dbe67fef45da8554"
+  },
+  "notes": "The initial measured image contains earlier chart/monitor helpers, preserved under diagnostics. The revised CPU/host monitors ran on the host for the repeat. The final chart was rendered by bind-mounting the working-tree plotting script into the measured image. Engine/model/server/sweep/scorer sources remained unchanged.",
+  "chart_input": "summary.json",
+  "chart_input_sha256": "e1ea2f396477da9fbb82c63196e7b4c095602b3ddd9b207d8d0d436616467210"
+}

@@ -1,0 +1,18 @@
+prefill 8192: 1018.3 tok/s
+prefill 8192: 1112.5 tok/s
+prefill 8192: 1114.7 tok/s
+prefill 16384: 1113.5 tok/s
+prefill 16384: 1224.5 tok/s
+prefill 16384: 1200.5 tok/s
+prefill 32768: 1207.8 tok/s
+prefill 32768: 1238.5 tok/s
+prefill 32768: 1227.4 tok/s
+prefill 65536: 1250.4 tok/s
+prefill 65536: 1222.1 tok/s
+prefill 65536: 1245.4 tok/s
+decode C1: aggregate 33.36 tok/s, per-stream 33.34
+decode C2: aggregate 36.25 tok/s, per-stream 18.12
+decode C3: aggregate 37.95 tok/s, per-stream 12.65
+decode C4: aggregate 39.29 tok/s, per-stream 9.82
+decode C1@32k: 31.70 tok/s
+SWEEP DONE <recipe-kit>/work/campaign-adaptive/sweep.json

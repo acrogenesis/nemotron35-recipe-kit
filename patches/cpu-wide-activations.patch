@@ -1,0 +1,28 @@
+--- a/exllamav3/exllamav3_ext/cpu/moe_mul1.cpp
++++ b/exllamav3/exllamav3_ext/cpu/moe_mul1.cpp
+@@ -333,10 +333,15 @@
+     uint8_t wide[MAX_M];
+ };
+ 
+-// EXL3_MOE_CPU_WIDE=0: plain int8 activations for every row (testing)
++// EXL3_MOE_CPU_WIDE=0: plain int8; 1/unset: adaptive; 2: wide for every nonzero row
+ const bool g_wide_rows = []{
+     const char* e = std::getenv("EXL3_MOE_CPU_WIDE");
+     return !(e && e[0] == '0');
++}();
++
++const bool g_force_wide_rows = []{
++    const char* e = std::getenv("EXL3_MOE_CPU_WIDE");
++    return e && e[0] == '2';
+ }();
+ 
+ M1_TARGET_AVX2
+@@ -476,7 +481,7 @@
+     {
+         const float amax = row_absmax_avx2(dst, k);
+         const int zeros = quantize_row_avx2(dst, splat, splat_dup, k, amax, q, s);
+-        if (g_wide_rows && amax > 0.0f && zeros * WIDE_ZERO_DIV > k)
++        if (g_wide_rows && amax > 0.0f && (g_force_wide_rows || zeros * WIDE_ZERO_DIV > k))
+         {
+             quantize_row_wide_avx2(dst, splat, splat_dup, k, amax, p.q + slot, p.sum_x8 + slot);
+             p.wide[r] = 1;

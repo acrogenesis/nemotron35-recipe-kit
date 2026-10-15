@@ -1,0 +1,34 @@
+{
+ "device": "cuda",
+ "name": "NVIDIA GeForce RTX 5090",
+ "h2d": {
+  "1MB_pin": 31.7,
+  "1MB_page": 24.22,
+  "4MB_pin": 32.58,
+  "4MB_page": 27.27,
+  "16MB_pin": 39.02,
+  "16MB_page": 27.48,
+  "64MB_pin": 48.82,
+  "64MB_page": 20.8,
+  "256MB_pin": 48.58,
+  "256MB_page": 20.73,
+  "1024MB_pin": 54.69,
+  "1024MB_page": 21.33
+ },
+ "d2h": {
+  "1MB_pin": 53.57,
+  "1MB_page": 13.39,
+  "4MB_pin": 55.82,
+  "4MB_page": 16.68,
+  "16MB_pin": 54.93,
+  "16MB_page": 18.66,
+  "64MB_pin": 56.57,
+  "64MB_page": 18.23,
+  "256MB_pin": 55.22,
+  "256MB_page": 18.87,
+  "1024MB_pin": 53.57,
+  "1024MB_page": 18.82
+ },
+ "host_memcpy_GBps_4GB": 34.14,
+ "torch_threads": 16
+}

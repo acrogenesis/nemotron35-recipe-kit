@@ -1,0 +1,512 @@
+{
+  "schema": "local-ai-recipe-kit/submission/v1",
+  "submitted": "2026-10-15",
+  "handle": "acrogenesis",
+  "target": "nemotron35-super-exl3",
+  "launch": {
+    "image": "localhost/nemotron35-recipe-kit@sha256:a18e20ae849a4f18d3ed8fc0f373c14d4ce75077cb88d6762604d45248195823",
+    "image_id": "14dc6f88e93596a6902d2ae7a99076b99633a8ac1bec679b03e37c5e48e5c0aa",
+    "image_distribution": "built locally from Containerfile; not published to a registry",
+    "base_image": "ghcr.io/0xsero/sglang-exl3-flashnext@sha256:86f673e630856c98c301b2731de3e1a0fe7639a3e12a7626abaea24a18e0eb5a",
+    "args": [
+      "python",
+      "/kit/server/serve.py",
+      "-m",
+      "/models",
+      "-cs",
+      "131072",
+      "-gs",
+      "27",
+      "-mcs",
+      "320",
+      "-mct",
+      "8",
+      "-ambs",
+      "4",
+      "-chunk_size",
+      "2048",
+      "-rcs",
+      "1",
+      "--host",
+      "0.0.0.0",
+      "--port",
+      "30000"
+    ],
+    "env": {
+      "EXL3_INT8_GEMV": "0",
+      "EXL3_MOE_CPU_SWAP": "0",
+      "EXL3_MOE_CPU_WIDE": "1",
+      "TORCH_CUDA_ARCH_LIST": "12.0",
+      "MAX_JOBS": "4",
+      "PYTHONPATH": ""
+    },
+    "shm": "4g",
+    "gpu": "nvidia.com/gpu=all",
+    "memory": "56g",
+    "memory_swap": "56g",
+    "published_port": "127.0.0.1:30080:30000",
+    "volumes": [
+      "<model directory>:/models:ro",
+      "<result directory>:/results:rw"
+    ],
+    "model": "acrogenesis/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-EXL3-3bpw",
+    "model_revision": "8cff1e817bd8f0a29d57b3f5ed5b89163670ff68",
+    "engine_revision": "058b8630fd081f3ff46fce6246955b157c3a2e3b",
+    "source_sha256": {
+      "patches/cpu-wide-activations.patch": "a10e5ab331018884b1bcb8d1fcd61495c5029be77ba797565b9b7ec09fc5f971",
+      "patches/nemotron35-text.patch": "2256f5544909c419df108ad1e7982f3174067fc2ea198150e9f4d5c344eb8ccc",
+      "server/serve.py": "bc4a9ed09bba96abe4d313f6a2d1968327f97339d1c56562b16f27f49e6aea2c",
+      "tools/build_reference.py": "74596672c45e1376a63d0916b68e8a84d88c3535e9730f52e02bd484523532ed",
+      "tools/check_quality.py": "c60d5bc4c42b3dcbf00911567f0d8b7c24ad47ceeb8a8945f6dd976aefb14274",
+      "tools/hw_bw.py": "22c475c43010765430faef340e56ba5f1efb84d7b1c1346766eca11737e3664a",
+      "tools/make_submission.py": "a9b38afd5d225078d0d8845d1d8d00e5c59d3b628a1e1fadd244572534161e5f",
+      "tools/monitor_container.py": "f3b1d414265f23fb8ec0c9a837efb2ba9465414e52676d6e74a631396bc81ed2",
+      "tools/needle.py": "5ebb234d5e6c59d708fbb8dfc185eac16092012569aae0c684fba237d334ca92",
+      "tools/plot_results.py": "f7bbf9609c0a833d422ac618e613058d1f77298b4ad12ab7ddd4014ad7d04870",
+      "tools/probe.py": "d6e5fbbc6213abc667e67946b5a11e95f99eae3b29be752307164cc5d0d31195",
+      "tools/record_launch.py": "da353f7ee6b09a928a09f235113e87df51fa6ccac5f1703f10cb3583608b50e4",
+      "tools/run_campaign.py": "9a9e162602a91571e7072a4bff0e6b0e225cd714b90a78398767a59fda1d4d30",
+      "tools/score_ref_panel.py": "d23fcd4ae175789fe5488ba670e581b87f155b97890891e118d00d15b23b09aa",
+      "tools/smoke.py": "e82f629ff9541c07877e1d52f1bad8816f81fe7157f546eb4588a7d813998c6f",
+      "tools/sweep.py": "9bfde76a67dd922d030a4dc26aa3275a84a8144c7ca9e6986bcc7e5678b52eed",
+      "tools/validate.py": "7872dbf5576ec6f2d527fc059db66497811cf0ab3b092858654ea3fb51d2dd54"
+    }
+  },
+  "probe": {
+    "host": {
+      "kernel": "7.2.5-3-omarchy",
+      "cpu": "AMD Ryzen 9 9950X3D 16-Core Processor",
+      "cpus": 32,
+      "avx512": true
+    },
+    "ram": {
+      "total_gb": 132.57,
+      "available_gb": 78.3,
+      "swap_total_gb": 132.57,
+      "swap_used_gb": 21.85
+    },
+    "storage": {
+      "path": "<model directory>",
+      "free_gb": 504.43,
+      "total_gb": 3998.62,
+      "device": "/dev/mapper/root",
+      "fstype": "btrfs",
+      "physical_disks": [
+        {
+          "disk": "nvme1n1",
+          "nvme": true,
+          "rotational": false,
+          "model": "Samsung SSD 990 PRO with Heatsink 4TB"
+        }
+      ],
+      "all_nvme": true
+    },
+    "gpus": [
+      {
+        "vendor": "nvidia",
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 5090",
+        "vram_gb": 32,
+        "vram_mib": 32607,
+        "vram_used_mib": 1022,
+        "unified_memory": false,
+        "pci": "00000000:01:00.0",
+        "pcie_gen_max": "5",
+        "pcie_width_max": "16",
+        "driver": "610.57.04"
+      }
+    ]
+  },
+  "quality": {
+    "panel": {
+      "top1_agreement": 0.9866666666666667,
+      "mean_kl_top20": 0.0016589692149165832,
+      "positions": 300
+    },
+    "needle": {
+      "prompt_tokens": 119983,
+      "depth": 0.8,
+      "code": "6305-3471",
+      "answer": "6305-3471",
+      "pass": true,
+      "seconds": 74.5
+    }
+  },
+  "speed": {
+    "status": "DONE",
+    "config": "Nemotron EXL3 3bpw HQ; RTX5090; CPU320/threads8; batch4; ctx131072; chunk2048; reserve2048; CPU_WIDE=1; INT8=0; swap=0",
+    "prefill": {
+      "8192": {
+        "median": 1112.5,
+        "min": 1018.3,
+        "max": 1114.7,
+        "n": 3,
+        "all": [
+          1018.3,
+          1112.5,
+          1114.7
+        ]
+      },
+      "16384": {
+        "median": 1200.5,
+        "min": 1113.5,
+        "max": 1224.5,
+        "n": 3,
+        "all": [
+          1113.5,
+          1224.5,
+          1200.5
+        ]
+      },
+      "32768": {
+        "median": 1227.4,
+        "min": 1207.8,
+        "max": 1238.5,
+        "n": 3,
+        "all": [
+          1207.8,
+          1238.5,
+          1227.4
+        ]
+      },
+      "65536": {
+        "median": 1245.4,
+        "min": 1222.1,
+        "max": 1250.4,
+        "n": 3,
+        "all": [
+          1250.4,
+          1222.1,
+          1245.4
+        ]
+      }
+    },
+    "decode": {
+      "C1": {
+        "aggregate": {
+          "median": 33.355000000000004,
+          "min": 33.32,
+          "max": 33.39,
+          "n": 2,
+          "all": [
+            33.39,
+            33.32
+          ]
+        },
+        "per_stream_mean": {
+          "median": 33.34,
+          "min": 33.31,
+          "max": 33.37,
+          "n": 2,
+          "all": [
+            33.37,
+            33.31
+          ]
+        },
+        "gpu_power_w_mean": 196.9,
+        "rounds": [
+          {
+            "aggregate": 33.39,
+            "tokens": 1922,
+            "ttft_max": 1.3,
+            "finish": [
+              "stop"
+            ]
+          },
+          {
+            "aggregate": 33.32,
+            "tokens": 2422,
+            "ttft_max": 1.1,
+            "finish": [
+              "stop"
+            ]
+          }
+        ]
+      },
+      "C2": {
+        "aggregate": {
+          "median": 36.245000000000005,
+          "min": 36.04,
+          "max": 36.45,
+          "n": 2,
+          "all": [
+            36.04,
+            36.45
+          ]
+        },
+        "per_stream_mean": {
+          "median": 18.115000000000002,
+          "min": 18.01,
+          "max": 18.22,
+          "n": 2,
+          "all": [
+            18.01,
+            18.22
+          ]
+        },
+        "gpu_power_w_mean": 164.5,
+        "rounds": [
+          {
+            "aggregate": 36.04,
+            "tokens": 2832,
+            "ttft_max": 2.04,
+            "finish": [
+              "stop"
+            ]
+          },
+          {
+            "aggregate": 36.45,
+            "tokens": 2858,
+            "ttft_max": 2.08,
+            "finish": [
+              "stop"
+            ]
+          }
+        ]
+      },
+      "C3": {
+        "aggregate": {
+          "median": 37.945,
+          "min": 37.52,
+          "max": 38.37,
+          "n": 2,
+          "all": [
+            38.37,
+            37.52
+          ]
+        },
+        "per_stream_mean": {
+          "median": 12.649999999999999,
+          "min": 12.51,
+          "max": 12.79,
+          "n": 2,
+          "all": [
+            12.79,
+            12.51
+          ]
+        },
+        "gpu_power_w_mean": 155.7,
+        "rounds": [
+          {
+            "aggregate": 38.37,
+            "tokens": 4832,
+            "ttft_max": 3.1,
+            "finish": [
+              "stop"
+            ]
+          },
+          {
+            "aggregate": 37.52,
+            "tokens": 4861,
+            "ttft_max": 3.22,
+            "finish": [
+              "stop"
+            ]
+          }
+        ]
+      },
+      "C4": {
+        "aggregate": {
+          "median": 40.245000000000005,
+          "min": 39.65,
+          "max": 40.84,
+          "n": 2,
+          "all": [
+            40.84,
+            39.65
+          ]
+        },
+        "per_stream_mean": {
+          "median": 10.15,
+          "min": 10.09,
+          "max": 10.21,
+          "n": 2,
+          "all": [
+            10.21,
+            10.09
+          ]
+        },
+        "gpu_power_w_mean": 145.9,
+        "rounds": [
+          {
+            "aggregate": 40.84,
+            "tokens": 6480,
+            "ttft_max": 4.03,
+            "finish": [
+              "stop"
+            ]
+          },
+          {
+            "aggregate": 39.65,
+            "tokens": 6955,
+            "ttft_max": 4.19,
+            "finish": [
+              "stop"
+            ]
+          }
+        ]
+      },
+      "C1@32k": {
+        "aggregate": {
+          "median": 33.644999999999996,
+          "min": 33.61,
+          "max": 33.68,
+          "n": 2,
+          "all": [
+            33.68,
+            33.61
+          ]
+        },
+        "per_stream_mean": null,
+        "gpu_power_w_mean": null,
+        "rounds": [
+          {
+            "aggregate": 33.68,
+            "tokens": 3251,
+            "ttft_max": 26.06,
+            "finish": [
+              "stop"
+            ]
+          },
+          {
+            "aggregate": 33.61,
+            "tokens": 1932,
+            "ttft_max": 25.87,
+            "finish": [
+              "stop"
+            ]
+          }
+        ]
+      }
+    },
+    "prompt_sha256": [
+      "ffb137bceb154d058f0da138b64785517c1541ee63b0f9011bbaa3be81116992",
+      "ef485c9fb4d26a314332fb1749f18cd38437400cf9556095d97b596c59e0da8c",
+      "b6a833e7777a8b49d9c9ee33dda683c71cf8189f4ec31005493d1318e4439852",
+      "b1f9cff0d411c261f8796802863607eb294dbbb69eb999283d64a7bb1eb3c6a1",
+      "8c902be88cf351c08370d26ba8fcfd2216e241925165b7baa200867a4bf4559d",
+      "484a0417c60c59af25890d5cc29c08494d42714a19fa67a7c69b6d61e5c3f897",
+      "5368a0b0377d5492188623d435d1abd037fd8509d97a36444ef7dde03a3cd791",
+      "d313bff4e3062d2a26dfa7db6fdb247b5a90303b1dd3b7704b02c0f50f860a28",
+      "d0207df780f9867363f498deb7f1da55b9d616351965914a1eb604ee8d4ed679",
+      "0c73e04f362eac6106615a9b635978e59d9f7c0b76d5400227017eb46ecc0e44",
+      "4b1fb50cf11307526609549ec3be92e083d2024651b13c38be71ac48589877a3",
+      "ee4f7b740fcafc718307804049398068c44803979a017bf0ab5d79d374fcfea4",
+      "0ff3b75565f92d3c4cc2757c5f9917d34f753e5f9af1d9c914d7b6974938c94e",
+      "c1f355b85c14bdcd20d410717d0ffe304ef54ef952bbe3626a5a6e08ce2e1e86",
+      "78de17295d8a2db5829ca9656f3454e79de1c06a7cfca508284e32aaad6c2aa1",
+      "500df551f476ff664057095d4412619dddd396bc5563d53245497ead5248586c",
+      "7e540aaefa4f01d1182fb318a70d3ebc2b8d406d11d8ed1bcd2e997275bf873f",
+      "4a3b60e4c029ec4718803d70fa446f564df84684fab9ad8635330be2947964af",
+      "87f312b73d03b01fe590038d71d48869d2e68bd9c72135cf995f904063a536ac",
+      "421804627b2d1dbd9389c37bab457075553798d8be5b632cec8fbe06b0172ff3",
+      "7e9a31c8690ca7bc4999aab476c3d495bf59e1a918a4b4299beaaf4dacda9a6f",
+      "80fea868d5edcd229c3a0e3a7049c524f62de89476bcd44a5ad346d36c654f1e"
+    ],
+    "server_args": {
+      "max_running_requests": 4,
+      "max_total_num_tokens": 131072,
+      "chunked_prefill_size": 2048,
+      "kv_cache_dtype": "float16",
+      "context_length": 131072,
+      "mem_fraction_static": null,
+      "max_mamba_cache_size": 4
+    },
+    "gates": {
+      "prefill_8192": {
+        "value": 1112.5,
+        "best_known": null,
+        "pass": true
+      },
+      "prefill_16384": {
+        "value": 1200.5,
+        "best_known": null,
+        "pass": true
+      },
+      "prefill_32768": {
+        "value": 1227.4,
+        "best_known": null,
+        "pass": true
+      },
+      "prefill_65536": {
+        "value": 1245.4,
+        "best_known": null,
+        "pass": true
+      },
+      "decode_C1": {
+        "value": 33.36,
+        "best_known": null,
+        "pass": true
+      },
+      "decode_C4": {
+        "value": 40.25,
+        "best_known": null,
+        "pass": true
+      }
+    }
+  },
+  "needs_measured": null,
+  "notes": "DIAGNOSTIC: runtime parity FAILED (296/300 matches; KL 0.0016589692). Reported prefill/C1/C2/C3 are from the initial full sweep; C4 and C1@32k are from a targeted repeat after high host CPU. Both raw runs are retained. All completions ended naturally. This is not a quality-validated recipe. Original adaptive CPU precision; desktop active. Container had no swap or OOM. Host/GPU trace failed because bc was missing; GPU peak and host RAM drop are unavailable. Valid cgroup memory trace is included. Image built locally from pinned public sources; not registry-published.",
+  "campaign": {
+    "started": 1792104057.9866824,
+    "status": "complete_diagnostic",
+    "diagnostic": true,
+    "stage": "sweep",
+    "updated": 1792104153.16748,
+    "quality_gate_passed": false,
+    "needle_passed": true,
+    "finished": 1792105559.0707762
+  },
+  "resources": {
+    "container_peak_bytes": 49740709888,
+    "anonymous_peak_bytes": 32051220480,
+    "container_swap_peak_bytes": 0,
+    "oom_events": 0,
+    "oom_kills": 0,
+    "gpu_peak_mib_including_desktop": null,
+    "host_gpu_trace_status": "FAILED: bc was not installed; original logger produced empty memory columns. Fixed logger tested separately after the sweep.",
+    "host_cpu_percent_median": 32.53,
+    "host_cpu_percent_max": 99.38,
+    "host_swap_start_upstream_units": null,
+    "host_swap_end_upstream_units": null,
+    "notes": "Cgroup trace is complete: byte counts, CPU use, container swap and OOM counters are valid. The separate host/GPU logger failed, so host RAM drop and GPU peak are not reported. Hardware probe recorded occupied host swap before launch. Container swap is disabled."
+  },
+  "verification": {
+    "natural_end_decode_requests": 22,
+    "cache_hits": 0,
+    "minimum_output_tokens": 1059,
+    "maximum_output_tokens": 3251,
+    "total_output_tokens": 38345,
+    "all_aggregate_rates_recomputed": true,
+    "prefill_lengths": 4,
+    "prefill_repetitions_each": 3,
+    "decode_rounds_each": 2,
+    "campaign_status": "complete_diagnostic",
+    "quality_gate_passed": false,
+    "needle_passed": true
+  },
+  "reported_sources": {
+    "sweep.json": {
+      "loads": "all prefill sizes; C1, C2, C3 decode",
+      "started": "2026-10-15T16:42:33-0600",
+      "finished": "2026-10-15T17:05:59-0600"
+    },
+    "recheck-sweep.json": {
+      "loads": "C4 and C1@32k decode",
+      "started": "2026-10-15T17:12:05-0600",
+      "finished": "2026-10-15T17:21:16-0600"
+    }
+  },
+  "recheck_resources": {
+    "samples": 550,
+    "host_cpu_percent_median": 32.24,
+    "container_cpu_percent_median": 28.03,
+    "other_host_cpu_percent_median": 4.29,
+    "other_host_cpu_percent_max": 19.75,
+    "longest_consecutive_samples_other_cpu_at_least_25_percent": 0,
+    "gpu_peak_mib_during_recheck_only": 25821.0,
+    "scope": "C4 and C1@32k repeat only; model already loaded. No full-sweep GPU peak or host RAM-drop measurement.",
+    "container_swap_peak_bytes": 0,
+    "oom_kills": 0
+  }
+}

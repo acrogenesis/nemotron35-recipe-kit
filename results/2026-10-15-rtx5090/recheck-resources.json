@@ -1,0 +1,12 @@
+{
+  "samples": 550,
+  "host_cpu_percent_median": 32.24,
+  "container_cpu_percent_median": 28.03,
+  "other_host_cpu_percent_median": 4.29,
+  "other_host_cpu_percent_max": 19.75,
+  "longest_consecutive_samples_other_cpu_at_least_25_percent": 0,
+  "gpu_peak_mib_during_recheck_only": 25821.0,
+  "scope": "C4 and C1@32k repeat only; model already loaded. No full-sweep GPU peak or host RAM-drop measurement.",
+  "container_swap_peak_bytes": 0,
+  "oom_kills": 0
+}

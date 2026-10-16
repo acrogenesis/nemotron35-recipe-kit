@@ -1,0 +1,45 @@
+{
+ "host": {
+  "kernel": "7.2.5-3-omarchy",
+  "cpu": "AMD Ryzen 9 9950X3D 16-Core Processor",
+  "cpus": 32,
+  "avx512": true
+ },
+ "ram": {
+  "total_gb": 132.57,
+  "available_gb": 75.32,
+  "swap_total_gb": 132.57,
+  "swap_used_gb": 23.41
+ },
+ "storage": {
+  "path": "~/Work/nemotron35-recipe-kit/work/gguf-comparison/models",
+  "free_gb": 469.15,
+  "total_gb": 3998.62,
+  "device": "/dev/mapper/root",
+  "fstype": "btrfs",
+  "physical_disks": [
+   {
+    "disk": "nvme1n1",
+    "nvme": true,
+    "rotational": false,
+    "model": "Samsung SSD 990 PRO with Heatsink 4TB"
+   }
+  ],
+  "all_nvme": true
+ },
+ "gpus": [
+  {
+   "vendor": "nvidia",
+   "index": 0,
+   "name": "NVIDIA GeForce RTX 5090",
+   "vram_gb": 32,
+   "vram_mib": 32607,
+   "vram_used_mib": 1404,
+   "unified_memory": false,
+   "pci": "00000000:01:00.0",
+   "pcie_gen_max": "5",
+   "pcie_width_max": "16",
+   "driver": "610.57.04"
+  }
+ ]
+}

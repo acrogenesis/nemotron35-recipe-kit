@@ -22,6 +22,10 @@ The target is a 32 GB RTX 5090, Ryzen 9950X3D and 128 GB RAM. The 50 GB weight f
 
 Medians of two natural-end rounds; no output cap. C4 and 32K values come from the targeted repeat after a host-CPU load burst; the other loads come from the initial full sweep. Same 3-bit HQ EXL3 model, thinking off, 128K total cache, CPU expert offloading. The 119,983-token retrieval check passed. These are HTTP measurements from the adapted Sybil protocol, using ExLlamaV3 rather than Sybil's model-specific SGLang runtime. [Raw results, memory measurements and validation](results/2026-10-15-rtx5090/).
 
+### Compared with Unsloth GGUF
+
+In the [paired 512-token benchmark](results/2026-10-15-gguf/), the 50.0 GB EXL3 and 51.1 GB UD-IQ2_XXS GGUF both deliver about **32–33 tok/s**. IQ2 with MTP reaches **34.70 tok/s** on short prompts, falling to **30.90 tok/s** at 32K. The 59.8 GB UD-IQ3_XXS reaches **27–29 tok/s** at 8K and 32K, depending on MTP. Identical input tokens, 128K configured context, three responses per prompt length. The report includes the graph, raw responses, runtime settings and resource traces; these quantizations have not been compared for quality.
+
 ## Build and download
 
 Use Linux, Podman with NVIDIA CDI configured, Python 3 and the Hugging Face CLI. The image builds CUDA kernels for SM120. The base image and engine source are pinned; the container is built locally, not downloaded from an unpublished image tag.

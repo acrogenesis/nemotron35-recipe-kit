@@ -1,0 +1,10 @@
+{
+  "runs": 9,
+  "all_prompt_hashes_match": true,
+  "all_cache_hits_zero": true,
+  "all_output_counts_512": true,
+  "cgroup_swap_peak": 0,
+  "other_host_cpu_median": 3.125,
+  "other_host_cpu_max": 19.19,
+  "harness_sha256": "977883fd9e5e86f4e97d41572f65b3d51cd2423887c0a9a15403a95c96ccd4a6"
+}

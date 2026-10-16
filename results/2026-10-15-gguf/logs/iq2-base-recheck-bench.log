@@ -1,0 +1,3 @@
+Warm-up: 32.33 tok/s
+p8192-r0: 31.03 tok/s, TTFT 6.111s, output 512
+Post-run verification passed

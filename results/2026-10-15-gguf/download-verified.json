@@ -1,0 +1,37 @@
+{
+  "repo": "unsloth/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-GGUF",
+  "revision": "75a5829055f69a0359085ae6bbd0a81b60bc05c6",
+  "files": [
+    {
+      "name": "UD-IQ2_XXS/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-UD-IQ2_XXS-00001-of-00003.gguf",
+      "bytes": 7874568,
+      "sha256": "9247e0cc5b489df3aee72e4e7d3031a37f824c41ef1afd1a5cd8e78c20e2e5ea"
+    },
+    {
+      "name": "UD-IQ2_XXS/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-UD-IQ2_XXS-00003-of-00003.gguf",
+      "bytes": 1556480576,
+      "sha256": "57976b795428793796ca2d618ea0eecbf8585557c098ac44e651d4a0e4650be9"
+    },
+    {
+      "name": "UD-IQ3_XXS/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-UD-IQ3_XXS-00001-of-00003.gguf",
+      "bytes": 7874568,
+      "sha256": "01150188b68c1ebf4528d095eab5fa12b7ae18acfe7cb9fcc5563c0772badd94"
+    },
+    {
+      "name": "UD-IQ2_XXS/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-UD-IQ2_XXS-00002-of-00003.gguf",
+      "bytes": 49555992928,
+      "sha256": "6c8b64eab997efaae6059b15b4c529596b6e78410f3907858d4f063a47dc8bb4"
+    },
+    {
+      "name": "UD-IQ3_XXS/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-UD-IQ3_XXS-00003-of-00003.gguf",
+      "bytes": 9758873024,
+      "sha256": "e69358032031aa6dac6838dffb03ad2d54e510bad2fea10513db7dd27dfbd70b"
+    },
+    {
+      "name": "UD-IQ3_XXS/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-UD-IQ3_XXS-00002-of-00003.gguf",
+      "bytes": 49997462976,
+      "sha256": "fbf889020bf9effe03da67985d24a1b5d58ad382fcdd02fa390c09687abc0957"
+    }
+  ],
+  "status": "DONE"
+}

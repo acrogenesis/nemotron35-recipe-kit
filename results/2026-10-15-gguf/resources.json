@@ -1,0 +1,72 @@
+{
+  "exl3": {
+    "peak_cgroup_bytes_during_measurement": 35155816448,
+    "peak_anonymous_bytes": 32156672000,
+    "peak_model_swap_bytes": 0,
+    "oom_kills": 0,
+    "peak_total_gpu_mib_during_measurement": 26182,
+    "other_host_cpu_median_percent": 3.125,
+    "other_host_cpu_max_percent": 19.19,
+    "longest_consecutive_samples_other_cpu_at_least25": 0
+  },
+  "exl3-recheck": {
+    "peak_cgroup_bytes_during_measurement": 45867294720,
+    "peak_anonymous_bytes": 31978881024,
+    "peak_model_swap_bytes": 0,
+    "oom_kills": 0,
+    "peak_total_gpu_mib_during_measurement": 25639,
+    "other_host_cpu_median_percent": 9.97,
+    "other_host_cpu_max_percent": 23.27,
+    "longest_consecutive_samples_other_cpu_at_least25": 0
+  },
+  "iq2-base": {
+    "peak_cgroup_bytes_during_measurement": 53690863616,
+    "peak_anonymous_bytes": 1102798848,
+    "peak_model_swap_bytes": 0,
+    "oom_kills": 0,
+    "peak_total_gpu_mib_during_measurement": 30109,
+    "other_host_cpu_median_percent": 9.39,
+    "other_host_cpu_max_percent": 83.99,
+    "longest_consecutive_samples_other_cpu_at_least25": 17
+  },
+  "iq2-base-recheck": {
+    "peak_cgroup_bytes_during_measurement": 51060035584,
+    "peak_anonymous_bytes": 1106309120,
+    "peak_model_swap_bytes": 0,
+    "oom_kills": 0,
+    "peak_total_gpu_mib_during_measurement": 30096,
+    "other_host_cpu_median_percent": 9.05,
+    "other_host_cpu_max_percent": 32.45,
+    "longest_consecutive_samples_other_cpu_at_least25": 1
+  },
+  "iq2-mtp": {
+    "peak_cgroup_bytes_during_measurement": 5350350848,
+    "peak_anonymous_bytes": 1163051008,
+    "peak_model_swap_bytes": 0,
+    "oom_kills": 0,
+    "peak_total_gpu_mib_during_measurement": 29314,
+    "other_host_cpu_median_percent": 8.895,
+    "other_host_cpu_max_percent": 18.87,
+    "longest_consecutive_samples_other_cpu_at_least25": 0
+  },
+  "iq3-base": {
+    "peak_cgroup_bytes_during_measurement": 62272290816,
+    "peak_anonymous_bytes": 1114976256,
+    "peak_model_swap_bytes": 0,
+    "oom_kills": 0,
+    "peak_total_gpu_mib_during_measurement": 29882,
+    "other_host_cpu_median_percent": 8.42,
+    "other_host_cpu_max_percent": 40.0,
+    "longest_consecutive_samples_other_cpu_at_least25": 1
+  },
+  "iq3-mtp": {
+    "peak_cgroup_bytes_during_measurement": 2696601600,
+    "peak_anonymous_bytes": 1164079104,
+    "peak_model_swap_bytes": 0,
+    "oom_kills": 0,
+    "peak_total_gpu_mib_during_measurement": 29306,
+    "other_host_cpu_median_percent": 8.1,
+    "other_host_cpu_max_percent": 14.96,
+    "longest_consecutive_samples_other_cpu_at_least25": 0
+  }
+}

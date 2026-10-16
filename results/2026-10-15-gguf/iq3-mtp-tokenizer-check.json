@@ -1,0 +1,38 @@
+[
+  {
+    "id": "p128-r0",
+    "tokenizer_match": true
+  },
+  {
+    "id": "p8192-r0",
+    "tokenizer_match": true
+  },
+  {
+    "id": "p32768-r0",
+    "tokenizer_match": true
+  },
+  {
+    "id": "p128-r1",
+    "tokenizer_match": true
+  },
+  {
+    "id": "p8192-r1",
+    "tokenizer_match": true
+  },
+  {
+    "id": "p32768-r1",
+    "tokenizer_match": true
+  },
+  {
+    "id": "p128-r2",
+    "tokenizer_match": true
+  },
+  {
+    "id": "p8192-r2",
+    "tokenizer_match": true
+  },
+  {
+    "id": "p32768-r2",
+    "tokenizer_match": true
+  }
+]

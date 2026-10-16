@@ -1,0 +1,11 @@
+Warm-up: 29.60 tok/s
+p128-r0: 31.07 tok/s, TTFT 1.493s, output 512
+p8192-r0: 26.93 tok/s, TTFT 8.061s, output 512
+p32768-r0: 28.88 tok/s, TTFT 32.304s, output 512
+p128-r1: 32.65 tok/s, TTFT 1.516s, output 512
+p8192-r1: 28.03 tok/s, TTFT 8.203s, output 512
+p32768-r1: 28.83 tok/s, TTFT 32.255s, output 512
+p128-r2: 31.54 tok/s, TTFT 1.491s, output 512
+p8192-r2: 27.82 tok/s, TTFT 7.952s, output 512
+p32768-r2: 32.42 tok/s, TTFT 31.724s, output 512
+Post-run verification passed

@@ -1,0 +1,15 @@
+Warm-up: 33.15 tok/s
+p128-r0: 33.44 tok/s, TTFT 1.387s, output 512
+p8192-r0: 27.07 tok/s, TTFT 9.766s, output 512
+p32768-r0: 31.89 tok/s, TTFT 24.709s, output 512
+p128-r1: 31.97 tok/s, TTFT 1.141s, output 512
+p8192-r1: 32.67 tok/s, TTFT 5.990s, output 512
+p32768-r1: 32.61 tok/s, TTFT 23.735s, output 512
+p128-r2: 32.21 tok/s, TTFT 1.155s, output 512
+p8192-r2: 32.04 tok/s, TTFT 5.968s, output 512
+p32768-r2: 32.55 tok/s, TTFT 24.249s, output 512
+Traceback (most recent call last):
+  File "{HOME}/Work/nemotron35-recipe-kit/work/gguf-comparison/measure_current.py", line 29, in <module>
+    assert len(row['output_ids']) == 512, (row['id'], len(row['output_ids']))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('p32768-r2', 511)

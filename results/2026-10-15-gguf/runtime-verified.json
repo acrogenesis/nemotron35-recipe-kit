@@ -1,0 +1,84 @@
+{
+  "tag": "b11643-mix-cfaf026",
+  "url": "https://github.com/unslothai/llama.cpp/releases/tag/b11643-mix-cfaf026",
+  "assets": [
+    {
+      "name": "app-b11643-mix-cfaf026-linux-x64-cuda13-newer.tar.gz",
+      "sha256": "ec33adaa3d58931be57fc62f00ebaaee8c1299f4b4ffc4b5e65b0d974b3271fa",
+      "bytes": 241739682,
+      "url": "https://github.com/unslothai/llama.cpp/releases/download/b11643-mix-cfaf026/app-b11643-mix-cfaf026-linux-x64-cuda13-newer.tar.gz"
+    },
+    {
+      "name": "llama.cpp-source-commit-3bf0e05945af8821ef53d6daaf80d2fb4f234bd6.tar.gz",
+      "sha256": "4f4b8b918abf80eb03a3dfa986eeb2f5f94142cc184935134247bf29e77219da",
+      "bytes": 38569729,
+      "url": "https://github.com/unslothai/llama.cpp/releases/download/b11643-mix-cfaf026/llama.cpp-source-commit-3bf0e05945af8821ef53d6daaf80d2fb4f234bd6.tar.gz"
+    }
+  ],
+  "build": {
+    "upstream_tag": "b11643-mix-cfaf026",
+    "source_repo": "unslothai/llama.cpp",
+    "source_repo_url": "https://github.com/unslothai/llama.cpp",
+    "source_ref_kind": "mix",
+    "requested_source_ref": "b11643-mix-cfaf026",
+    "resolved_source_ref": "b11643-mix-cfaf026",
+    "source_commit": "3bf0e05945af8821ef53d6daaf80d2fb4f234bd6",
+    "source_commit_short": "3bf0e05",
+    "platform": "linux-x64-cuda",
+    "bundle_profile": "cuda13-newer",
+    "runtime_line": "cuda13",
+    "coverage_class": "newer",
+    "bundle_rank": 50,
+    "toolkit_line": "13.3",
+    "docker_image": "github-hosted ubuntu-22.04, CUDA 13.3 (NVIDIA redist)",
+    "supported_sms": [
+      "86",
+      "89",
+      "90",
+      "100",
+      "103",
+      "120"
+    ],
+    "nvcc_validation_status": "available",
+    "nvcc_detected_sms": [
+      "75",
+      "80",
+      "86",
+      "87",
+      "88",
+      "89",
+      "90",
+      "100",
+      "103",
+      "110",
+      "120",
+      "121"
+    ],
+    "nvcc_validation_message": "detected 12 SM targets",
+    "min_sm": 86,
+    "max_sm": 120,
+    "notes": "CUDA 13 newer bundle.",
+    "build_shared_libs": true,
+    "ggml_backend_dl": true,
+    "ggml_cpu_all_variants": true,
+    "rpath": "$ORIGIN"
+  },
+  "cuda_packages": {
+    "nvidia-cufile": "1.15.1.6",
+    "nvidia-nvtx": "13.0.85",
+    "nvidia-cusparse": "12.6.3.3",
+    "nvidia-nccl-cu13": "2.28.9",
+    "nvidia-cufft": "12.0.0.61",
+    "nvidia-nvshmem-cu13": "3.4.5",
+    "nvidia-cusolver": "12.0.4.66",
+    "nvidia-cuda-runtime": "13.0.96",
+    "nvidia-cuda-cupti": "13.0.85",
+    "nvidia-cusparselt-cu13": "0.8.0",
+    "nvidia-curand": "10.4.0.35",
+    "nvidia-nvjitlink": "13.0.88",
+    "nvidia-cublas": "13.1.0.3",
+    "nvidia-cudnn-cu13": "9.19.0.56",
+    "nvidia-cuda-nvrtc": "13.0.88",
+    "nvidia-npp": "13.2.0.58"
+  }
+}

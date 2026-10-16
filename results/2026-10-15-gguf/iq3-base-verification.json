@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "runs": 9,
+  "identical_input_ids": true,
+  "tokenizer_matches": true,
+  "all_cache_hits_zero": true,
+  "all_outputs512": true,
+  "all_prompt_tokens_processed": true,
+  "no_context_truncation": true
+}
